@@ -27,10 +27,9 @@ RUN mkdir -p build
 SHELL ["/bin/bash", "-c"]
 WORKDIR /tmp/${PROJECT}/build
 
-RUN source /opt/ros/noetic/setup.bash && \
-   cmake .. && \
-   cmake --build . --config Release --target install -- -j $(nproc) && \
-   cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . 
+RUN cmake .. -DBUILD_adore_TESTING=ON -DCMAKE_PREFIX_PATH=install -DCMAKE_INSTALL_PREFIX:PATH=install && \
+    cmake --build . --config Release --target install -- -j $(nproc) && \
+    cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . 
 
 
 FROM alpine:3.14

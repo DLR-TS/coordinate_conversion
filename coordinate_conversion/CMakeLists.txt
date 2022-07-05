@@ -28,11 +28,12 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(Packing)
 
 target_include_directories(
-  coordinate_conversion
+  ${PROJECT_NAME}
   PUBLIC 
-    $<BUILD_INTERFACE:${coordinate_conversion_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+
 ## Declare a C++ library
 target_sources(${PROJECT_NAME} PRIVATE
   src/coordinate_conversion.cpp
@@ -68,7 +69,7 @@ install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
         COMPONENT ${PROJECT_NAME}
 )
 
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/build/devel/include DESTINATION .) 
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include DESTINATION .) 
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES
