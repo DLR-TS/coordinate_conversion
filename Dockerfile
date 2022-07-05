@@ -28,9 +28,9 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /tmp/${PROJECT}/build
 
 RUN source /opt/ros/noetic/setup.bash && \
-    cmake .. && \
-    cmake --build . --config Release --target install -- -j $(nproc) && \
-    cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . 
+   cmake .. && \
+   cmake --build . --config Release --target install -- -j $(nproc) && \
+   cpack -G DEB && find . -type f -name "*.deb" | xargs mv -t . 
 
 
 FROM alpine:3.14

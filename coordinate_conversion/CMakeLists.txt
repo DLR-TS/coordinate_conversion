@@ -15,7 +15,7 @@
 cmake_minimum_required(VERSION 3.13)
 project(coordinate_conversion)
 
-add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME} STATIC)
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set(PACKAGE_VENDOR "DLR TS-KOS-SAI")
@@ -27,16 +27,15 @@ include(GNUInstallDirs)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(Packing)
 
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-include_directories(
-  include
+target_include_directories(
+  coordinate_conversion
+  PUBLIC 
+    $<BUILD_INTERFACE:${coordinate_conversion_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-
 ## Declare a C++ library
-add_library(${PROJECT_NAME}
-  src/${PROJECT_NAME}/coordinate_conversion.cpp
+target_sources(${PROJECT_NAME} PRIVATE
+  src/coordinate_conversion.cpp
 )
 
 
