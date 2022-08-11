@@ -31,12 +31,10 @@ build: set_env
 	docker build --network host \
                  --tag $(shell echo ${TAG} | tr A-Z a-z) \
                  --build-arg PROJECT=${PROJECT} .
-	mkdir -p "${ROOT_DIR}/tmp/${PROJECT}"
-	docker cp $$(docker create --rm $(shell echo ${TAG} | tr A-Z a-z)):/tmp/${PROJECT}/build ${ROOT_DIR}/${PROJECT}
+	docker cp $$(docker create --rm ${TAG} ):/tmp/${PROJECT}/build ${ROOT_DIR}/${PROJECT}
 
 .PHONY: clean
 clean: set_env
 	rm -rf "${ROOT_DIR}/coordinate_conversion/build"
-	rm -rf "${ROOT_DIR}/tmp"
 	docker rm $$(docker ps -a -q --filter "ancestor=${TAG}") 2> /dev/null || true
 	docker rmi $$(docker images -q ${PROJECT}) 2> /dev/null || true
