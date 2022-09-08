@@ -31,7 +31,7 @@ build: set_env
 	docker build --network host \
                  --tag $(shell echo ${TAG} | tr A-Z a-z) \
                  --build-arg PROJECT=${PROJECT} .
-	docker cp $$(docker create --rm ${TAG} ):/tmp/${PROJECT}/build ${ROOT_DIR}/${PROJECT}
+	docker cp $$(docker create --rm $(shell echo ${TAG} | tr A-Z a-z)):/tmp/${PROJECT}/build "${ROOT_DIR}/${PROJECT}"
 
 .PHONY: clean
 clean: set_env
