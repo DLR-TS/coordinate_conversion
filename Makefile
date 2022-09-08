@@ -36,6 +36,5 @@ build: set_env
 .PHONY: clean
 clean: set_env
 	rm -rf "${ROOT_DIR}/coordinate_conversion/build"
-	rm -rf "${ROOT_DIR}/tmp"
 	docker rm $$(docker ps -a -q --filter "ancestor=${TAG}") 2> /dev/null || true
 	docker rmi $$(docker images -q ${PROJECT}) 2> /dev/null || true
