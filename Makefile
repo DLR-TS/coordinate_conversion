@@ -26,7 +26,7 @@ set_env:
 all: build
 
 .PHONY: build
-build: set_env
+build: set_env clean
 	rm -rf ${ROOT_DIR}/coordinate_conversion/build
 	docker build --network host \
                  --tag $(shell echo ${TAG} | tr A-Z a-z) \
