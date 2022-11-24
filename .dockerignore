@@ -1,3 +1,11 @@
 **.git
 **build
 coordinate_conversion/build
+Makefile
+.gitignore
+.dockerignore
+**.docker*
+<<<<<<< HEAD
+=======
+**make_gadgets
+>>>>>>> acc9d40 (squashed commits for docker-tagging WIP)

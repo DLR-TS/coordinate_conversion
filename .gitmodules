@@ -1,0 +1,3 @@
+[submodule "make_gadgets"]
+	path = make_gadgets
+	url = git@github.com:DLR-TS/make_gadgets.git

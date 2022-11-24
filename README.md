@@ -24,3 +24,9 @@ On this level the repository is a docker and make wrapper for the actual content
 ## Setup
 This repository may be used on a system, which fulfills a set of requirements [adore_setup](https://github.com/dlr-ts/adore_setup).
 After checkout, enter make in the top level of the repository in order to build.
+
+## make help recipe
+To view the available make recipes run the following:
+```bash
+make help
+````
