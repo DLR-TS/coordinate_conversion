@@ -6,8 +6,6 @@ SHELL:=/bin/bash
 ROOT_DIR:=$(shell dirname "$(realpath $(firstword $(MAKEFILE_LIST)))")
 MAKEFILE_PATH:=$(shell dirname "$(abspath "$(lastword $(MAKEFILE_LIST)"))")
 
-include make_gadgets/make_gadgets.mk
-include make_gadgets/docker/docker-tools.mk
 include coordinate_conversion.mk 
 
 MAKEFLAGS += --no-print-directory
