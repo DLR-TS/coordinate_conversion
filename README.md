@@ -18,6 +18,9 @@
 ADORe is an open source toolkit for automated vehicle control and decision making, with the main repository [eclipse/adore](https://github.com/eclipse/adore).
 This module contains a transform between WGS84 and UTM and is consumed by other modules.
 
+## Build Status
+[![CI](https://github.com/DLR-TS/coordinate_conversion/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/DLR-TS/coordinate_conversion/actions/workflows/ci.yaml)
+
 ## Structure
 On this level the repository is a docker and make wrapper for the actual content in the module subfolder.
 

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+source "${SUBMODULES_PATH}/ci_teststand/ci_core.sh" 
+source "${SUBMODULES_PATH}/ci_teststand/ci_utils.sh" 
+
+source ci.env
+source "${SUBMODULES_PATH}/ci_teststand/.common_tests"
+source "${SUBMODULES_PATH}/ci_teststand/.docker_tests"
+source .tests 
+
+build(){
+    ci_common_build
+}
+
+test(){
+    ci_common_test
+}
+
+ci_pipeline(){
+    echo "  CI Pipeline Starting..."
+    build
+    test
+
+}
+
+ci_run "$@"

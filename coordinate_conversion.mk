@@ -43,11 +43,11 @@ clean_coordinate_conversion: ## Clean coordinate_conversion build artifacts
 
 .PHONY: branch_coordinate_conversion
 branch_coordinate_conversion: ## Returns the current docker safe/sanitized branch for coordinate_conversion
-	@printf "%s\n" ${COORDINATE_CONVERSION_MAKEFILE_PATH}
+	@printf "%s\n" ${COORDINATE_CONVERSION_TAG}
 
 .PHONY: image_coordinate_conversion
 image_coordinate_conversion: ## Returns the current docker image name for coordinate_conversion
-	@printf "%s\n" ${COORDINATE_CONVERSION_MAKEFILE_PATH}
+	@printf "%s\n" ${COORDINATE_CONVERSION_IMAGE}
 
 .PHONY: update_coordinate_conversion
 update_coordinate_conversion:

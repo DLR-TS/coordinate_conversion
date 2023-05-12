@@ -1,3 +1,6 @@
 [submodule "make_gadgets"]
 	path = make_gadgets
 	url = git@github.com:DLR-TS/make_gadgets.git
+[submodule "ci_teststand"]
+	path = ci_teststand
+	url = git@github.com:DLR-TS/ci_teststand.git
